@@ -1,0 +1,4 @@
+Luz quarto Nina;On;2022-12-25T08:30;2022-12-25T19:30;azul;2;50;true;
+Luz quarto suíte;On;2022-12-25T12:30;2022-12-25T19:30;vermelho;3;55;true;
+Luz cozinha;On;2022-12-25T08:30;2022-12-25T19:30;verde;4;60;true;
+

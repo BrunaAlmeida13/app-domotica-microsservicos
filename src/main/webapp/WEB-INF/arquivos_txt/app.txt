@@ -1,0 +1,28 @@
+P;AppDomotica;Software para controle de uma casa automatizada
+C;Comodo
+A;tipo;String;Tipo do cômodo
+A;nome;String;Nome do comodo
+A;Aparelho;List;Uma lista dos aparelhos que contém no quarto
+C;Responsavel
+A;login;String;Usuário para acesso ao aplicativo
+A;senha;String;Senha para acesso ao aplicativo
+A;nome;String;Nome do usuário
+A;cpf;String;CPF do usuário
+A;telefone;String;Telefone celular do usuário
+C;Aparelho
+A;nome;String;Nome do aparelho
+A;status;String;Estado do aparelho
+A;timerInicio;LocalDateTime;Hora marcada para inicio do funcionamento do aparelho
+A;timerFim;LocalDateTime;Hora marcada para término do funcionamento do aparelho
+C;ArCondicionado estende Aparelho
+A;temperatura;double;Regulagem de temperatura do A.C.
+A;ventilacao;boolean;Regulagem do modo ventilador no A.C.
+A;power;boolean;Regulagem para ligar ou desligar o A.C.
+C;Luz estende Aparelho
+A;cor;String;Regulagem RGB para luz
+A;intensidade;int;Regulagem da intensidade da luz
+A;volumeSom;int;Regulagem do volume do som, da luz
+C;Fechadura estende Aparelho
+A;senha;String;Senha para abertura da(s) porta(s)
+A;trancada;boolean;Indicador de se porta(s) está(ão) trancada(s)
+A;alarme;boolean;Regulagem para ativação e desativação do alarme
