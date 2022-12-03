@@ -1,0 +1,10 @@
+C;Cozinha;Cozinha;responsavel1@email.com;usu1;658487565869;61548467963;
+L;Luz cozinha;Ligada;2022-12-25T08:30;2022-12-25T19:30;verde;4;60;true;
+F;Fechadura Cozinha;Trancada;2022-12-25T08:30;2022-12-25T19:30;8745;true;true;
+A;A.C. cozinha;Ligado;2022-12-25T08:30;2022-12-25T19:30;22.0;true;true;
+C;Quarto;Quarto Nina;responsavel2@email.com;usu2;658482225869;61542227963;
+L;Luz quarto Nina;Ligada;2022-12-25T08:30;2022-12-25T19:30;azul;2;50;true;
+A;A.C. quarto Nina;Ligado;2022-12-25T08:30;2022-12-25T19:30;22.0;true;true;
+C;Quarto;Quarto suite;responsavel3@email.com;usu3;658483335869;61333467963;
+L;Luz quarto suíte;Ligada;2022-12-25T12:30;2022-12-25T19:30;vermelho;3;55;true;
+A;A.C. quarto suíte;Ligado;2022-12-25T08:30;2022-12-25T19:30;22.0;true;true;

@@ -1,0 +1,9 @@
+L;Luz quarto Nina;On;2022-12-25T08:30;2022-12-25T19:30;azul;2;50;true;
+L;Luz quarto suíte;On;2022-12-25T12:30;2022-12-25T19:30;vermelho;3;55;true;
+L;Luz cozinha;On;2022-12-25T08:30;2022-12-25T19:30;verde;4;60;true;
+F;Fechadura sala;Trancada;2022-12-25T08:30;2022-12-25T19:30;8745;true;true;
+F;Fechadura Cozinha;Trancada;2022-12-25T08:30;2022-12-25T19:30;8745;true;true;
+F;Fechadura Garagem;Trancada;2022-12-25T08:30;2022-12-25T19:30;8745;true;true;
+A;A.C. quarto suíte;Ligado;2022-12-25T08:30;2022-12-25T19:30;22.0;true;true;
+A;A.C. quarto Nina;Ligado;2022-12-25T08:30;2022-12-25T19:30;22.0;true;true;
+A;A.C. cozinha;Ligado;2022-12-25T08:30;2022-12-25T19:30;22.0;true;true;
