@@ -4,19 +4,19 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import br.edu.infnet.appdomotica.model.exceptions.TamanhoMaximoSenhaException;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
-@Table(name = "TFechadura")
+@Table(name = "fechadura")
+@Getter
+@Setter
+@ToString
 public class Fechadura extends Aparelho {
 	private String senha;
 	private boolean trancada;
 	private boolean alarme;
-
-	@Override
-	public void impressao() {
-		System.out.println("#Fechadura");
-		System.out.println(this);
-	}
 
 	@Override
 	public long quantidadeHorasAgendada() throws TamanhoMaximoSenhaException {
@@ -44,37 +44,11 @@ public class Fechadura extends Aparelho {
 			super.setStatus("Destrancada");
 	}
 
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
-	public boolean isTrancada() {
-		return trancada;
-	}
-
-	public void setTrancada(boolean trancada) {
-		this.trancada = trancada;
-	}
-
-	public boolean isAlarme() {
-		return alarme;
-	}
-
 	public void setAlarme(boolean alarme) {
 		if (this.trancada == true)
 			this.alarme = alarme;
 		else
 			this.alarme = false;
-	}
-
-	@Override
-	public String toString() {
-		return "Fechadura [" + super.toString() + "Senha: " + this.senha + "; Trancada: " + this.trancada + "; Alarme: "
-				+ this.alarme + "]\n";
 	}
 
 }

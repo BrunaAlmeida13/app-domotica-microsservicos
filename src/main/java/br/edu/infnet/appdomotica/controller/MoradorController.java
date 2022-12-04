@@ -1,5 +1,7 @@
 package br.edu.infnet.appdomotica.controller;
 
+import br.edu.infnet.appdomotica.model.domain.Morador;
+import br.edu.infnet.appdomotica.model.service.MoradorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,41 +9,38 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import br.edu.infnet.appdomotica.model.domain.Morador;
-import br.edu.infnet.appdomotica.model.service.MoradorService;
-
 @Controller
 public class MoradorController {
 
-	@Autowired
-	private MoradorService moradorService;
-	
-	@GetMapping(value = "/morador/lista")
-	public String telaLista(Model model) {
+    @Autowired
+    private MoradorService moradorService;
 
-		model.addAttribute("listagem", moradorService.obterLista());
+    @GetMapping(value = "/morador/lista")
+    public String telaLista(Model model) {
 
-		return "morador/lista";
-	}
+        model.addAttribute("listagem", moradorService.obterLista());
 
-	@GetMapping(value = "/morador")
-	public String telaCadastro() {
-		return "morador/cadastro";
-	}
+        return "morador/lista";
+    }
 
-	@PostMapping(value = "/morador/incluir")
-	public String incluir(Morador morador) {
+    @GetMapping(value = "/morador")
+    public String telaCadastro() {
+        return "morador/cadastro";
+    }
 
-		moradorService.incluir(morador);
+    @PostMapping(value = "/morador/incluir")
+    public String incluir(Morador morador) {
 
-		return "redirect:/";
-	}
+        moradorService.incluir(morador);
 
-	@GetMapping(value = "/morador/{email}/excluir")
-	public String excluir(@PathVariable String email) {
+        return "redirect:/";
+    }
 
-		moradorService.excluir(email);
+    @GetMapping(value = "/morador/{email}/excluir")
+    public String excluir(@PathVariable String email) {
 
-		return "redirect:/morador/lista";
-	}
+        moradorService.excluir(email);
+
+        return "redirect:/morador/lista";
+    }
 }

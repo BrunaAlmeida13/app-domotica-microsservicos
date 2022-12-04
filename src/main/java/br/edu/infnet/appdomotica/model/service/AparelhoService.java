@@ -20,7 +20,7 @@ public class AparelhoService {
 	}
 	
 	public Collection<Aparelho> obterLista(Morador morador) {
-		return (Collection<Aparelho>) aparelhoRepository.findAll(morador.getId());
+		return aparelhoRepository.findAll(morador.getId());
 	}
 	
 	public void excluir(Integer id) {

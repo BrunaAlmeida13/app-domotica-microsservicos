@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import br.edu.infnet.appdomotica.model.domain.Comodo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -28,6 +29,9 @@ public class LuzTeste implements ApplicationRunner {
 		
 		Morador morador = new Morador();
 		morador.setId(1);
+
+		/*Comodo comodo = new Comodo();
+		comodo.setId(1);*/
 		
 		String dir = "C:\\Users\\bruna\\OneDrive\\Área de Trabalho\\EclipeEE_Workspace\\appdomotica\\src\\main\\webapp\\WEB-INF\\arquivos_txt\\";
 		String arq = "aparelho.txt";
@@ -54,6 +58,7 @@ public class LuzTeste implements ApplicationRunner {
 							luz.setVolumeSom(Integer.valueOf(campos[7]));
 							luz.setPower(Boolean.valueOf(campos[8]));
 							luz.setMorador(morador);
+							//luz.setComodo(comodo);
 							luzService.incluir(luz);
 							System.out.println(
 									"Duração agendada do tempo de funcionamento: " + luz.quantidadeHorasAgendada());

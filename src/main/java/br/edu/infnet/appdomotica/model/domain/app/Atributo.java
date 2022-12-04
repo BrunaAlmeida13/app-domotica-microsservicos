@@ -1,51 +1,44 @@
 package br.edu.infnet.appdomotica.model.domain.app;
 
-import br.edu.infnet.appdomotica.interfaces.IPrinter;
+public class Atributo {
 
-public class Atributo implements IPrinter {
-	
-	private String nome;
-	private String tipo;
-	private String descricao;
-	
-	public Atributo(String nome, String tipo, String descricao) {
-		super();
-		this.nome = nome;
-		this.tipo = tipo;
-		this.descricao = descricao;
-	}
+    private String nome;
+    private String tipo;
+    private String descricao;
 
-	public String getNome() {
-		return nome;
-	}
+    public Atributo(String nome, String tipo, String descricao) {
+        super();
+        this.nome = nome;
+        this.tipo = tipo;
+        this.descricao = descricao;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public String getTipo() {
-		return tipo;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
+    public String getTipo() {
+        return tipo;
+    }
 
-	public String getDescricao() {
-		return descricao;
-	}
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-	
-	@Override
-	public String toString() {
-		return String.format("%s %s: %s", tipo, nome, descricao);
-	}
+    public String getDescricao() {
+        return descricao;
+    }
 
-	@Override
-	public void impressao() {
-		System.out.println("###" + this);
-	}
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s: %s", tipo, nome, descricao);
+    }
 }

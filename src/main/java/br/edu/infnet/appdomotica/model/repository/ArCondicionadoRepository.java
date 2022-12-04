@@ -1,16 +1,15 @@
 package br.edu.infnet.appdomotica.model.repository;
 
-import java.util.Collection;
-
+import br.edu.infnet.appdomotica.model.domain.ArCondicionado;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import br.edu.infnet.appdomotica.model.domain.ArCondicionado;
+import java.util.Collection;
 
 @Repository
-public interface ArCondicionadoRepository extends CrudRepository<ArCondicionado, Integer> {
+public interface ArCondicionadoRepository extends JpaRepository<ArCondicionado, Integer> {
 
-	@Query("from ArCondicionado ac where ac.morador.id = :idMorador")
-	Collection<ArCondicionado> findAll(Integer idMorador);
+    @Query("from ArCondicionado ac where ac.morador.id = :idMorador")
+    Collection<ArCondicionado> findAll(Integer idMorador);
 }

@@ -1,126 +1,61 @@
 package br.edu.infnet.appdomotica.model.domain;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
-import br.edu.infnet.appdomotica.interfaces.IPrinter;
 import br.edu.infnet.appdomotica.model.exceptions.ComodoSemAparelhosException;
 import br.edu.infnet.appdomotica.model.exceptions.ResponsavelNuloException;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-@Table(name = "TComodo")
-public class Comodo implements IPrinter {
+@Table(name = "comodo")
+@Getter
+@Setter
+@ToString
+public class Comodo {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-	private String tipo;
-	private String nome;
-	
-	@ManyToMany(cascade = CascadeType.DETACH)
-	private Set<Aparelho> listaAparelhos;
-	
-	@OneToOne(cascade = CascadeType.DETACH) 
-	@JoinColumn(name = "idResponsavel")
-	private Responsavel responsavel;
+    private String tipo;
+    private String nome;
 
-	@ManyToOne
-	@JoinColumn(name = "idMorador")
-	private Morador morador;
+    @OneToMany(mappedBy = "comodo", fetch = FetchType.LAZY)
+    private Set<Aparelho> listaAparelhos;
 
-	public Comodo() {
-	}
+    @OneToOne(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "idResponsavel")
+    private Responsavel responsavel;
 
-	public Comodo(Responsavel responsavel, Set<Aparelho> listaAparelhos)
-			throws ResponsavelNuloException, ComodoSemAparelhosException {
+    @ManyToOne
+    @JoinColumn(name = "idMorador")
+    private Morador morador;
 
-		if (responsavel == null) {
-			throw new ResponsavelNuloException("Não tem como controlar os aparelhos de um cômodo sem um responsável.");
-		}
+    public Comodo() {
+    }
 
-		/*
-		 * if (listaAparelhos == null) { throw new
-		 * ComodoSemAparelhosException("Não tem como controlar um cômodo sem uma listagem de aparelhos."
-		 * ); }
-		 * 
-		 * if (listaAparelhos.size() < 1) { throw new
-		 * ComodoSemAparelhosException("Não tem como controlar um cômodo sem aparelhos."
-		 * ); }
-		 */
+    public Comodo(Responsavel responsavel, Set<Aparelho> listaAparelhos)
+            throws ResponsavelNuloException, ComodoSemAparelhosException {
 
-		this.responsavel = responsavel;
-		this.listaAparelhos = listaAparelhos;
-	}
+        if (responsavel == null) {
+            throw new ResponsavelNuloException("Não tem como controlar os aparelhos de um cômodo sem um responsável.");
+        }
 
-	@Override
-	public void impressao() {
-		System.out.println("#Fechadura");
-		System.out.println(this);
-	}
+        /*
+         * if (listaAparelhos == null) { throw new
+         * ComodoSemAparelhosException("Não tem como controlar um cômodo sem uma listagem de aparelhos."
+         * ); }
+         *
+         * if (listaAparelhos.size() < 1) { throw new
+         * ComodoSemAparelhosException("Não tem como controlar um cômodo sem aparelhos."
+         * ); }
+         */
 
-	public Integer getId() {
-		return id;
-	}
+        this.responsavel = responsavel;
+        this.listaAparelhos = listaAparelhos;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public Set<Aparelho> getListaAparelhos() {
-		return listaAparelhos;
-	}
-
-	public void setListaAparelhos(Set<Aparelho> listaAparelhos) {
-		this.listaAparelhos = listaAparelhos;
-	}
-
-	public Responsavel getResponsavel() {
-		return responsavel;
-	}
-
-	public void setResponsavel(Responsavel responsavel) {
-		this.responsavel = responsavel;
-	}
-	
-	public Morador getMorador() {
-		return morador;
-	}
-
-	public void setMorador(Morador morador) {
-		this.morador = morador;
-	}
-
-	@Override
-	public String toString() {
-		return "Tipo: " + this.tipo + "; Nome: " + this.nome + "; \nResponsavel: " + responsavel
-				+ "; \nNúmero de aparelhos no cômodo: " + listaAparelhos.size() + "\n";
-		// listaAparelhos.toString()
-	}
 }
